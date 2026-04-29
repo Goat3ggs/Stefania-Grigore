@@ -1,0 +1,45 @@
+/* 
+Block component
+.btn {}
+
+Element that depends upon the block 
+.btn__price {}
+
+Modifier that changes the style of the block
+.btn--orange {} 
+.btn--big {} 
+*/
+
+@import "./css/reset.css";
+@import "./css/variables.css";
+@import "./css/header.css";
+@import "./css/hero.css";
+@import "./css/about.css";
+@import "./css/projects.css";
+@import "./css/footer.css";
+
+
+
+
+
+body {
+  background-color: var(--primary-clr-1);
+  /* Asigură-te că fundalul acoperă cel puțin toată înălțimea ecranului */
+  min-height: 100vh;
+  background-attachment: fixed;
+  
+  /* Culoarea textului globală */
+  color: var(--accent-clr-sub);
+  
+  margin: 0;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+}

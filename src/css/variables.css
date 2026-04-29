@@ -1,0 +1,11 @@
+:root {
+    --primary-clr-1: #0b1019;
+    --primary-clr-2: #152337;
+    --secondary-clr: #8c1d28;
+    --accent-clr-title: #f1f5f9;
+    --accent-clr-sub: #94a3b8;
+
+    /* gradient color */
+    --gradient: #2a5a7a;
+    --gradient: #d97736;
+}

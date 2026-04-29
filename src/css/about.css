@@ -1,0 +1,9 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.about {
+  /* Lumina vine din stânga, fixată pe zona pozei */
+  background: radial-gradient(circle at 150% 50%, #2A5A7A 0%, transparent 60%);
+  padding: 80px 0;
+
+}

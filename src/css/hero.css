@@ -1,0 +1,7 @@
+@import "./variables.css";
+
+.hero {
+  /* Lumina e poziționată la 30% pe orizontală și 50% pe verticală */
+  background: radial-gradient(circle at 30% 50%, var(--primary-clr-2) 0%, transparent 70%);
+
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frontend Developer Portfolio by Stefania Grigore. Interactive projects created with HTML, CSS, JavaScript and React.">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>stefaniagrigore-portfolio</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header__logo">
+        <a href="/">GS</a>
+      </div>
+      <button class="header__burger" aria-label="Toggle navigation menu">
+        <img src="./src/assets/icon-hamburger.svg" class="burger__img header__burger--open" alt="open menu icon">
+        <img src="./src/assets/icon-close.svg" class="burger__img header__burger--close u-hidden" alt="close menu icon">
+      </button>
+      <nav class="nav nav--hidden">
+        <ul class="nav__list">
+          <li class="list__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="list__item"><a href="#projects" class="nav__link">Projects</a></li>
+        </ul>        
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="main__item hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <div class="hero__info">
+      
+            <div class="info__left">
+              <span class="info__badge">
+                  <span class="badge__dot"></span> Available for Work
+              </span>
+              <h2 class="info__title">Frontend Developer<br>crafting interactive<br>web experiences.</h2>
+            </div>
+            
+            <div class="info__right">
+              <p class="info__text">Hi, I'm Stefania, passionate about creating clean, efficient code using React, TypeScript, and Vanilla JS.</p>
+              <a href="#projects" class="info__btn">See my work</a>
+            </div>
+            
+          </div>
+
+          <h1 class="hero-premium__giant-title">Stefania</h1>
+        </div>
+      </section>
+
+      <!-- About Me Section + Skills -->
+      <section id="about" class="main__item about">
+        <div class="about__content">
+          <h2 class="about__title">About Me</h2>
+          <div class="about__info">
+            <p class="about__text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quibusdam veritatis necessitatibus vero fugiat, qui ipsa saepe ea facere nostrum magni ducimus distinctio iusto natus magnam odio dolores officiis eveniet?
+            </p>
+            <ul class="about__skills">
+              <li class="about__skill">HTML</li>
+              <li class="about__skill">CSS</li>
+              <li class="about__skill">JavaScript</li>
+            </ul>
+            
+            <img src="" alt="Grigore Stefania photo" class="about__photo">
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Projects Section -->
+      <section id="projects" class="main__item projects">
+
+        <div class="projects__grid">
+          <!-- <a href="" class="project__item">
+            <div class="project__wrapper">
+              <img src="./src/assets/hero.png" alt="Image preview for the project" class="project__image">
+              <div class="project__info project__info--hover">
+                <h2 class="project__title">First Project</h2>
+                <span class="project__description"></span>
+              </div>
+            </div>
+          </a> -->
+
+          <div class="project__wrapper project__one">
+            <div class="project__info">
+              <p class="project__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aliquam cupiditate praesentium a quae rem, tempore autem quod optio cumque. Assumenda voluptatum voluptatibus asperiores, rem voluptas culpa fuga blanditiis provident.</p>
+              <span class="project__title">Todo App</span>
+            </div>
+            <div class="project__image">
+              <img src="./src/assets/hero.png" alt="Image preview for the project">
+            </div>
+          </div>
+
+          <div class="project__wrapper project__two">
+            <div class="project__info">
+              <p class="project__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aliquam cupiditate praesentium a quae rem, tempore autem quod optio cumque. Assumenda voluptatum voluptatibus asperiores, rem voluptas culpa fuga blanditiis provident.</p>
+              <span class="project__title">Todo App</span>
+            </div>
+            <div class="project__image">
+              <img src="./src/assets/hero.png" alt="Image preview for the project">
+            </div>
+          </div>
+
+          <div class="project__wrapper project__three">
+            <div class="project__info">
+              <p class="project__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aliquam cupiditate praesentium a quae rem, tempore autem quod optio cumque. Assumenda voluptatum voluptatibus asperiores, rem voluptas culpa fuga blanditiis provident.</p>
+              <span class="project__title">Todo App</span>
+            </div>
+            <div class="project__image">
+              <img src="./src/assets/hero.png" alt="Image preview for the project">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+     <!-- Socials Section + Footer Section -->
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__left">
+          <div class="footer__logo">
+            <a href="/">
+              <img id="footer-logo" src="./images/logo.svg" alt="Loopstudios logo">
+            </a>
+          </div>
+          <div class="footer__nav">
+            <ul class="footer__flexgroup footer__list">
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__right">
+          <div class="footer__socials">
+            <ul class="footer__flexgroup footer__list">
+              <li><a href="#"><img src="./assets/icon-linkedin.svg" alt="LinkedIn Profile"></a></li>
+              <li><a href="#"><img src="./assets/icon-github.svg" alt="GitHub Profile"></a></li>
+              <li><a href="#"><img src="./assets/icon-instagram.svg" alt="Instagram"></a></li>
+            </ul>
+          </div>
+          <p>© 2026 Grigore Stefania. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
