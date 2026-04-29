@@ -1,11 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
 :root {
     --primary-clr-1: #0b1019;
     --primary-clr-2: #152337;
-    --secondary-clr: #8c1d28;
+    --secondary-clr: #ff6905;
+    --secondary-clr-alpha: rgba(255, 80, 5, 0.26);
     --accent-clr-title: #f1f5f9;
     --accent-clr-sub: #94a3b8;
+    --accent-clr-alpha: rgba(148, 163, 184, 0.39);
 
     /* gradient color */
     --gradient: #2a5a7a;
-    --gradient: #d97736;
+    --gradient1: #d97736;
+
+    --ff-primary: 'Raleway', sans-serif;
+    --ff-heading: 'Syne', sans-serif;
+    --fw-thin: 100;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
 }
