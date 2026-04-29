@@ -62,10 +62,9 @@ h1, h2, h3, h4, h5, h6 {
 .projects__grid,
 .footer__container {
   width: 100%;
-  max-width: 1300px;   /* Pe mobil va fi ignorat fiindcă ecranul e mai mic de 1100, dar ne pregătește pt desktop */
-  margin: 0 auto;      /* Pe mobil nu face nimic, dar pe desktop va ține totul perfect pe mijloc */
+  max-width: 1500px;  
+  margin: 0 auto; 
   
-  /* Aceasta este magia pentru mobil: */
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -73,4 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 ul, ol {
   padding: 0;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
