@@ -22,30 +22,34 @@
         <ul class="nav__list">
           <li class="list__item"><a href="#about" class="nav__link">About</a></li>
           <li class="list__item"><a href="#projects" class="nav__link">Projects</a></li>
+          <li class="list__item"><a href="#projects" class="nav__link">CV</a></li>
         </ul>        
       </nav>
     </header>
 
     <main class="main">
       <section class="main__item hero" aria-labelledby="hero-title">
+        <img src="./src/assets/Stefania avatar transparent.png" alt="Stefania Grigore Profile Picture" class="hero__avatar">
         <div class="hero__content">
           <div class="hero__info">
-      
             <div class="info__left">
-              <span class="info__badge">
+              <a href="#footer" class="info__badge">
                   <span class="badge__dot"></span> Available for Work
-              </span>
+              </a>
               <h2 class="info__title">Frontend Developer<br>crafting interactive<br>web experiences.</h2>
             </div>
             
             <div class="info__right">
-              <p class="info__text">Hi, I'm Stefania, passionate about creating clean, efficient code using React, TypeScript, and Vanilla JS.</p>
-              <a href="#projects" class="info__btn">See my work</a>
+              <p class="info__text">I build high-performance, scalable interfaces using React and TypeScript, with a focus on clean code and architectures that last.</p>
+              <a href="#projects" class="info__badge--big">
+                <span class="info__arrow">-></span>
+                <span class="info__btn">See my work</span>
+              </a>
             </div>
             
           </div>
 
-          <h1 class="hero-premium__giant-title">Stefania</h1>
+          <h1 class="hero__title--giant">Stefania</h1>
         </div>
       </section>
 
@@ -117,7 +121,7 @@
     </main>
 
      <!-- Socials Section + Footer Section -->
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="footer__content">
         <div class="footer__left">
           <div class="footer__logo">
