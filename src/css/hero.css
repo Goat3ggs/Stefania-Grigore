@@ -1,7 +1,212 @@
 @import "./variables.css";
 
 .hero {
+  position: relative;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
   /* Lumina e poziționată la 30% pe orizontală și 50% pe verticală */
   background: radial-gradient(circle at 30% 50%, var(--primary-clr-2) 0%, transparent 70%);
-
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to top, var(--primary-clr-1) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 120px;
+}
+
+.hero__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero__avatar {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  object-fit: contain;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.info__badge {
+  background-color: var(--accent-clr-alpha);
+  color: var(--accent-clr-title);
+  padding: 10px 15px 10px ;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.info__badge:hover {
+  background-color: var(--secondary-clr-alpha);
+}
+
+.badge__dot {
+  display: inline-block;
+  background-color: var(--secondary-clr);
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--secondary-clr);
+}
+
+.info__title {
+  color: var(--accent-clr-title);
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-weight: var(--fw-regular);
+  margin-top: 20px;
+}
+
+.info__right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+.info__text {
+  font-size: 18px;
+}
+
+.info__badge--big {
+
+  background-color: var(--secondary-clr);
+  margin-top: 20px;
+  padding: 5px;
+  padding-right: 25px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  transition: transform 0.3 ease;
+}
+
+.info__badge--big:hover {
+  /* La hover, geamul devine un pic mai "dens" */
+  background: rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  box-shadow: 0 0 10px var(--secondary-clr);
+}
+
+.info__badge--big:hover .info__arrow {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
+  color: var(--secondary-clr);
+  transform: scale(0.9);
+}
+
+.info__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-clr-title);
+  color: var(--secondary-clr);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.info__btn {
+    color: var(--accent-clr-title);
+    font-weight: var(--fw-bold);
+}
+
+@media (orientation: landscape) and (max-width: 767px) {
+  .hero__avatar {
+    display: block;
+    left: auto;
+    right: -10%;
+    bottom: -15%;
+    transform: none;
+    height: 120%;
+    filter: brightness(0.6);
+  }
+
+  .hero__info {
+    padding-right: 40%;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20, 20, 0) 70%
+    );
+    opacity: 0.3;
+    z-index: 1;
+    filter: blur(80px);
+  }
+
+  .hero__content {
+    padding-top: 100px;
+  }
+
+  .hero__avatar {
+    display: block;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%);
+    height: 90%;
+    width: auto;
+    filter: brightness(1) contrast(1.1);
+    /* filter: grayscale(1); */
+  }
+
+  .hero__info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 0;
+  }
+
+  .info__right {
+    max-width: 350px;
+    margin: 0;
+  }
+
+  .hero__title--giant {
+  font-size: clamp(3rem, 11vw, 15rem);
+  line-height: 0.6;
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.08em;
+  color: var(--accent-clr-title);
+}
+
+.info__title {
+  font-size: 3rem;
+}
+}
+
