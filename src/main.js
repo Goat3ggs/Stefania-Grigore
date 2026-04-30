@@ -4,6 +4,39 @@ const iconOpen = document.querySelector(".header__burger--open");
 const iconClose = document.querySelector(".header__burger--close");
 const navLinks = document.querySelectorAll(".nav__link");
 const header = document.querySelector(".header");
+const skillsContainer = document.querySelector(".about__skills");
+
+const skillsData = [
+    { name: "HTML5", icon: "html5"},
+    { name: "CSS", icon: "css3" },
+    { name: "JavaScript", icon: "javascript" },
+    { name: "React", icon: "react" },
+    { name: "TypeScript", icon: "typescript" },
+    { name: "Git", icon: "git" },
+    { name: "PhotoShop", icon: "photoshop" },
+    { name: "Figma", icon: "figma" },
+
+]
+
+skillsData.forEach((skill) => {
+    const skillItem = document.createElement("li");
+    const skillIcon = document.createElement("img");
+    const cdnURL =  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`;
+
+
+    skillItem.classList.add("about__skill");
+    skillIcon.classList.add("skill__icon");
+    skillIcon.src = cdnURL;
+    skillIcon.alt = `Icon for ${skill.name}`;
+
+    skillIcon.onerror = () => {
+        console.warn(`Could not load logo ${skill.name} from CDN. Using local image.`);
+        skillIcon.src = `./src/assets/icons/${skill.icon}.svg`;
+    };
+
+    skillItem.appendChild(skillIcon);
+    skillsContainer.appendChild(skillItem);
+});
 
 burerBtn.addEventListener("click", () => {
     nav.classList.toggle("nav--hidden");
