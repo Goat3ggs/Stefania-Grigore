@@ -33,7 +33,7 @@
 .hero__info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 .hero__avatar {
@@ -80,7 +80,6 @@
 .info__right {
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
 }
 
 .info__text {
@@ -101,18 +100,23 @@
   transition: transform 0.3 ease;
 }
 
-.info__badge--big:hover {
-  /* La hover, geamul devine un pic mai "dens" */
+@media (hover: hover) and (pointer: fine) {
+  .info__badge--big:hover {
   background: rgba(255, 255, 255, 0.1);
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
   box-shadow: 0 0 10px var(--secondary-clr);
+  }
+
+  .info__badge--big:hover .info__arrow {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
+    color: var(--secondary-clr);
+    transform: scale(0.9);
+  }
 }
 
-.info__badge--big:hover .info__arrow {
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
-  color: var(--secondary-clr);
-  transform: scale(0.9);
+.info__badge--big:active {
+  transform: scale(0.95);
+  opacity: 0.8;
 }
 
 .info__arrow {
@@ -132,6 +136,53 @@
     color: var(--accent-clr-title);
     font-weight: var(--fw-bold);
 }
+
+.hero__title--giant {
+   font-size: clamp(2rem, 18vw, 15rem);
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: var(--fw-black);
+    color: var(--accent-clr-title);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-clr-title);
+}
+
+.desktop-title {
+  display: none;
+}
+
+.mobile-marquee {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  pointer-events: none;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollMarquee 10s linear infinite;
+}
+
+.dot {
+  color: var(--secondary-clr);
+  -webkit-text-stroke: 0; 
+}
+
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  
 
 @media (orientation: landscape) and (max-width: 767px) {
   .hero__avatar {
@@ -203,10 +254,19 @@
   font-weight: var(--fw-black);
   letter-spacing: -0.08em;
   color: var(--accent-clr-title);
-}
+  }
 
-.info__title {
-  font-size: 3rem;
-}
+  .info__title {
+    font-size: 3rem;
+  }
+
+  .desktop-title {
+    display: block; 
+  }
+
+  .mobile-marquee {
+    display: none;
+  }
+
 }
 
