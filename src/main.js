@@ -25,10 +25,15 @@ navLinks.forEach((el) => {
     });
 });
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+const checkScrollPosition = () => {
+    if (window.scrollY > 100) {
         header.classList.add("header--sticky");
     } else {
         header.classList.remove("header--sticky");
     }
-});
+};
+
+checkScrollPosition();
+
+window.addEventListener('load', checkScrollPosition);
+window.addEventListener("scroll", checkScrollPosition);
