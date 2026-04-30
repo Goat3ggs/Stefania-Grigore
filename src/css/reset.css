@@ -44,6 +44,7 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+
 }
 
 /*
@@ -76,4 +77,28 @@ ul, ol {
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: var(--primary-clr-1);
+  /* Asigură-te că fundalul acoperă cel puțin toată înălțimea ecranului */
+  min-height: 100vh;
+  background-attachment: fixed;
+  
+  /* Culoarea textului globală */
+  color: var(--accent-clr-sub);
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-regular);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1, h2, h3, .hero__title--gian {
+  font-family: var(--ff-heading);
+  color: var(--accent-clr-title);
 }

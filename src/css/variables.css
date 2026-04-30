@@ -23,3 +23,13 @@
     --fw-bold: 700;
     --fw-black: 900;
 }
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+}
