@@ -1,3 +1,116 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+.project__item {
+  border-bottom: 1px solid #555;
+  border-top: 1px solid #555;
+  transition: background-color 0.3s ease, color 0.3 ease;
+}
+
+.project__inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.project__title-section {
+  margin: 0 auto 6rem;
+  width: 100%;
+  max-width: 1500px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* font-size: 4rem; */
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.project__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.project__name,
+.project__tech {
+  transition: font-size 0.3s ease;
+}
+
+.project__item.project__item--active {
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+.project__name {
+  font-size: 1.2rem;
+}
+.project__name--open {
+    font-weight: var(--fw-bold);
+  }
+
+.project__tech {
+  font-size: 0.9rem;
+}
+
+.project__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project__content--inner {
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.project__content.is-open {
+  grid-template-rows: 1fr;
+}
+
+.project__content.is-open .project__content-inner {
+  padding-bottom: 2rem; 
+}
+
+.project__images--grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.project__img--main {
+  grid-row: span 2; 
+}
+
+
+@media (min-width: 768px) {
+  .project__item:hover,
+  .project__item.project__item--active {
+    background-color: #f5f5f5;
+    color: #111;
+  }
+
+  .project__title, .project__name, .project__tech{
+    font-size: 1.5rem;
+  }
+
+  .project__name--open {
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+  }
+
+  .project__tech--open {
+    font-size: 1rem;
+  }
 }
