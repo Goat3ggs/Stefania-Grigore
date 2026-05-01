@@ -10,6 +10,8 @@ const skillsContainer = document.querySelector(".about__skills");
 const projectsGrid = document.querySelector(".projects__grid");
 const projectTitles = document.querySelectorAll(".project__item");
 const projectContents = document.querySelectorAll(".project__content");
+const scrollTopLink = document.getElementById("scrollTopLink");
+
 
 const skillsData = [
     { name: "HTML5", icon: "html5"},
@@ -46,6 +48,7 @@ skillsData.forEach((skill) => {
     skillsContainer.appendChild(skillItem);
 });
 
+
 burerBtn.addEventListener("click", () => {
     nav.classList.toggle("nav--hidden");
     iconOpen.classList.toggle("u-hidden");
@@ -65,6 +68,17 @@ navLinks.forEach((el) => {
         document.body.classList.remove("u-no-scroll");
     });
 });
+
+
+if (scrollTopLink) {
+    scrollTopLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 const checkScrollPosition = () => {
     if (window.scrollY > 100) {
@@ -138,6 +152,7 @@ projectsGrid.addEventListener("click", (event) => {
         }
     }
 });
+
 
 
 window.addEventListener('load', checkScrollPosition);

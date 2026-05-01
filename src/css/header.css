@@ -69,6 +69,10 @@
   font-size: 2rem;
 }
 
+#scrollTopItem {
+  display: none;
+}
+
 @media(min-width: 768px) {
   .header__burger {
     display: none;
@@ -119,15 +123,30 @@
     right: 50%;
     transform: translateX(50%);
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 25px; /* Adăugăm padding-ul intern pentru pastilă */
+    padding: 10px 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
+  .header--sticky .nav__link {
+    color: #111; 
+  }
+
+  .header--sticky .nav__link:hover {
+    color: var(--secondary-clr); 
+  }
+
   .header--sticky .nav__list {
-    gap: 30px; /* Spațiu mai mic între link-uri în modul compact */
+    gap: 30px; 
+  }
+
+  .header--sticky #scrollTopItem {
+    display: block;
   }
 }
+
+
+

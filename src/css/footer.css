@@ -1,3 +1,146 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+.footer {
+  padding: 80px 0 40px;
+  margin-top: auto;
+}
+
+/* Secțiunea de Call to Action */
+.footer__cta {
+  margin-bottom: 4rem;
+}
+
+.text--orange {
+  color: #ff6b00;
+}
+
+.footer__text {
+  font-size: 1.1rem;
+  margin-top: 3rem; /* Spațiu compensatoriu pentru title--big */
+  margin-bottom: 2rem;
+  max-width: 500px;
+  color: #888;
+  line-height: 1.6;
+}
+
+/* Adresa de email mare și interactivă */
+.footer__email-link {
+  display: inline-block;
+  font-size: clamp(1.5rem, 6vw, 4rem); /* Am micșorat puțin valoarea minimă pentru mobil */
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: color 0.3s ease;
+  
+  /* SECRETUL PENTRU MOBIL: Forțează textul să treacă pe rândul următor dacă depășește ecranul */
+  overflow-wrap: break-word;
+  word-break: break-word; 
+}
+
+.footer__email-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6b00;
+  transition: width 0.3s ease;
+}
+
+.footer__email-link:hover::after {
+  width: 100%;
+}
+
+/* Linia despărțitoare */
+.footer__divider {
+  border: none;
+  border-top: 1px solid #333;
+  margin-bottom: 2rem;
+}
+
+/* Aranjarea zonei de jos (Mobile First) */
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Un pic mai mult spațiu între blocuri pe mobil */
+}
+
+.footer__left, 
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer__logo-text {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer__logo-text:hover {
+  color: #ff6b00;
+}
+
+.footer__list {
+  display: flex;
+  flex-wrap: wrap; /* SECRETUL PENTRU SOCIALS: Permite elementelor să cadă pe rândul următor frumos, în loc să se suprapună */
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #888;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer__link:hover {
+  color: #fff;
+}
+
+.footer__copyright {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* --- UPGRADE PENTRU DESKTOP --- */
+@media (min-width: 768px) {
+  .footer {
+    padding: 120px 0 60px; /* Spațiu mult mai generos sus/jos pentru un look elegant */
+  }
+
+  .footer__cta {
+    margin-bottom: 8rem; /* Împingem linia mai jos ca emailul să respire */
+  }
+
+  .footer__text {
+    font-size: 1.25rem;
+    margin-top: 4rem;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Aliniază perfect logo-ul cu copyright-ul pe orizontală */
+  }
+
+  .footer__left, 
+  .footer__right {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .footer__right {
+    justify-content: flex-end; /* Împingem social media la marginea dreaptă */
+  }
+
+  .footer__logo-text {
+    font-size: 2rem; /* Facem logo-ul puțin mai impunător pe monitoare mari */
+  }
 }
