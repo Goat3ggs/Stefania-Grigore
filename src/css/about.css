@@ -1,9 +1,187 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-.about {
-  /* Lumina vine din stânga, fixată pe zona pozei */
-  background: radial-gradient(circle at 150% 50%, #2A5A7A 0%, transparent 60%);
-  padding: 80px 0;
 
+.about {
+  /* Lumina vine din stânga, fixată pe zona pozei
+  background: radial-gradient(circle at 150% 50%, #2A5A7A 0%, transparent 60%);
+  padding: 80px 0; */
+
+  display: flex;
+  gap: 3rem;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.about__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about__info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about__text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--accent-clr-title);
+  max-width: 100%;
+
+}
+
+.about__photo {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: -70px;
+  border-radius: 50%;
+  filter: grayscale(1) contrast(1.2);
+  z-index: 100;
+
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.about::before{
+    content: "";
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 900px;
+    background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20,20, 0) 50%);
+    opacity: 0.2;
+    z-index: 1;
+    filter: blur(80px);
+  }
+
+.about__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  position: relative;
+  z-index: 150;
+}
+
+.about__skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.skill__tooltip {
+  position: absolute;
+  bottom: -35px;
+  background-color: var(--accent-clr-sub, #fff);
+  color: var(--primary-clr-1);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+
+.about__skill:hover .skill__tooltip,
+.about__skill:active .skill__tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill__icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .about {
+    margin-top: 200px;
+    margin-bottom: 0;
+    scroll-margin-top: clamp(60px, 15vh, 200px);
+  }
+
+  .about__content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .about__info {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .about__title {
+    font-size: 3rem;
+    max-width: 100px;
+    line-height: .9;
+    text-align: center;
+  }
+  
+  .about__title--orange {
+    background-color: var(--secondary-clr);
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.2rem 0;
+  }
+
+  .about__info-group {
+    max-width: 600px;
+  }
+
+  .about__text {
+    font-size: 1.5rem;
+  }
+
+  .about__photo {
+    transform: translateY(-10%);
+    max-width: 40%;
+    object-fit: contain;
+  }
+
+  .about::before {
+    top: 30%; 
+    left: 75%; 
+    width: 1000px;
+    height: 1000px;
+    opacity: 0.3;
+  }
+
+  .about__skills {
+    justify-content: start;
+    gap: 2.5rem;
+  }
+
+  .about__skill {
+    filter: opacity(0.5);
+  }
+
+  .about__skill:hover {
+    filter: opacity(1);
+  }
+
+  .skill__icon {
+    width: 60px;
+    height: 60px;
+  }
 }

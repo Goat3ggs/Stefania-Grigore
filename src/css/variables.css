@@ -33,3 +33,15 @@
   height: 100vh !important;
   touch-action: none !important;
 }
+
+.title--big {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-black);
+  font-size: 3.5rem;
+  line-height: 0.7;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+  transform: scaleY(2);
+  transform-origin: top left;
+  margin-bottom: 6rem;
+}

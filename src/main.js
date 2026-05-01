@@ -21,13 +21,16 @@ const skillsData = [
 skillsData.forEach((skill) => {
     const skillItem = document.createElement("li");
     const skillIcon = document.createElement("img");
+    const skillToolTip = document.createElement("span");
     const cdnURL =  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`;
 
 
     skillItem.classList.add("about__skill");
     skillIcon.classList.add("skill__icon");
+    skillToolTip.classList.add("skill__tooltip");
     skillIcon.src = cdnURL;
     skillIcon.alt = `Icon for ${skill.name}`;
+    skillToolTip.textContent = skill.name;
 
     skillIcon.onerror = () => {
         console.warn(`Could not load logo ${skill.name} from CDN. Using local image.`);
@@ -35,6 +38,7 @@ skillsData.forEach((skill) => {
     };
 
     skillItem.appendChild(skillIcon);
+    skillItem.appendChild(skillToolTip);
     skillsContainer.appendChild(skillItem);
 });
 
