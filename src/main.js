@@ -1,3 +1,5 @@
+import { projectsData } from "./projectsData";
+
 const burerBtn = document.querySelector(".header__burger");
 const nav = document.querySelector(".nav");
 const iconOpen = document.querySelector(".header__burger--open");
@@ -5,6 +7,9 @@ const iconClose = document.querySelector(".header__burger--close");
 const navLinks = document.querySelectorAll(".nav__link");
 const header = document.querySelector(".header");
 const skillsContainer = document.querySelector(".about__skills");
+const projectsGrid = document.querySelector(".projects__grid");
+const projectTitles = document.querySelectorAll(".project__item");
+const projectContents = document.querySelectorAll(".project__content");
 
 const skillsData = [
     { name: "HTML5", icon: "html5"},
@@ -15,7 +20,6 @@ const skillsData = [
     { name: "Git", icon: "git" },
     { name: "PhotoShop", icon: "photoshop" },
     { name: "Figma", icon: "figma" },
-
 ]
 
 skillsData.forEach((skill) => {
@@ -69,8 +73,70 @@ const checkScrollPosition = () => {
         header.classList.remove("header--sticky");
     }
 };
-
 checkScrollPosition();
+
+const renderProjects = () => {
+    const projectsHTML = projectsData.map((project) =>`
+        <div class="project__item">
+            <div class="project__inner">
+                <div class="project__title">
+                    <div class="project__name">${project.name}</div>
+                    <div class="project__tech">${project.tech}</div>  
+                </div>
+                <div class="project__content">
+                    <div class="project__content--inner">
+                        <a href="${project.repoUrl}" target="_blank">Code</a>
+                        <a href="${project.liveUrl}" target="_blank">Live</a>
+                        <p>${project.desc}</p>
+                        <div class="project__images project__images--grid">
+                            <img src="${project.image1}" alt="Image for the ${project.name} project" class="project__img project__img--main">
+                            <img src="${project.image2}" alt="Image for the ${project.name} project" class="project__img">
+                            <img src="${project.image3}" alt="Image for the ${project.name} project" class="project__img">
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    `).join("");
+    projectsGrid.insertAdjacentHTML("beforeend", projectsHTML);
+};
+renderProjects();
+
+projectsGrid.addEventListener("click", (event) => {
+    const clickedTitle = event.target.closest(".project__title");
+    if (!clickedTitle) return;
+
+    const projectContent = clickedTitle.nextElementSibling;
+    const projectItem = clickedTitle.closest(".project__item");
+    const projectName = clickedTitle.querySelector(".project__name");
+    const projectTech = clickedTitle.querySelector(".project__tech");
+    const currentlyOpenContent = projectsGrid.querySelector(".project__content.is-open");
+
+    if (currentlyOpenContent && currentlyOpenContent !== projectContent) {
+        const openItem = currentlyOpenContent.closest(".project__item");
+        const openName = openItem.querySelector(".project__name");
+        const openTech = openItem.querySelector(".project__tech");
+
+        currentlyOpenContent.classList.remove("is-open");
+        openItem.classList.remove("project__item--active");
+        openName.classList.remove("project__name--open");
+        openTech.classList.remove("project__tech--open");
+    }
+
+    if (projectContent && projectContent.classList.contains("project__content")) {
+        projectContent.classList.toggle("is-open");
+        projectName.classList.toggle("project__name--open");
+        projectTech.classList.toggle("project__tech--open");
+        projectItem.classList.toggle("project__item--active");
+
+        if (projectContent.classList.contains("is-open")) {
+            setTimeout(() => {
+                projectItem.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 400);
+        }
+    }
+});
+
 
 window.addEventListener('load', checkScrollPosition);
 window.addEventListener("scroll", checkScrollPosition);
