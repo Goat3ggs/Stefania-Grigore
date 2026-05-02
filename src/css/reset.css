@@ -68,9 +68,27 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 1500px;  
   margin: 0 auto; 
-  
   padding-left: 20px;
   padding-right: 20px;
+}
+
+/* 2. LAPTOPURI (Începând de la 1024px lățime) */
+@media (min-width: 1024px) {
+  .hero__content,
+  .about__content,
+  .footer__container {
+    padding-left: 100px;
+    padding-right: 100px; 
+  }
+}
+
+@media (min-width: 1500px) {
+  .hero__content,
+  .about__content,
+  .footer__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 ul, ol {

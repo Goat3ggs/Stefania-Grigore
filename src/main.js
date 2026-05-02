@@ -104,8 +104,8 @@ const renderProjects = () => {
                             <a href="${project.liveUrl}" target="_blank" class="project__link">Live</a>
                         </div>
                         <p class="project__desc">${project.desc}</p>
-                        <div class="project__images project__images--grid">
-                            <img src="${project.image1}" alt="Image for the ${project.name} project" class="project__img project__img--main">
+                        <div class="project__images project__images--grid ${project.class}">
+                            <img src="${project.image1}" alt="Image for the ${project.name} project" class="project__img project__img--main ">
                             <img src="${project.image2}" alt="Image for the ${project.name} project" class="project__img">
                             <img src="${project.image3}" alt="Image for the ${project.name} project" class="project__img">
                         </div>

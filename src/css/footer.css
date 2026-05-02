@@ -1,11 +1,27 @@
 .footer {
   padding: 80px 0 40px;
   margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, var(--gradient1) 0%, transparent 100%);
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none; 
 }
 
 /* Secțiunea de Call to Action */
 .footer__cta {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .text--orange {
@@ -61,7 +77,7 @@
 /* Aranjarea zonei de jos (Mobile First) */
 .footer__bottom {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2.5rem; /* Un pic mai mult spațiu între blocuri pe mobil */
 }
 
@@ -99,6 +115,11 @@
   font-size: 0.95rem;
 }
 
+.footer__socials i {
+  font-size: 1.5rem; 
+}
+
+
 .footer__link:hover {
   color: #fff;
 }
@@ -111,11 +132,11 @@
 /* --- UPGRADE PENTRU DESKTOP --- */
 @media (min-width: 768px) {
   .footer {
-    padding: 120px 0 60px; /* Spațiu mult mai generos sus/jos pentru un look elegant */
+    padding: 120px 0 40px; /* Spațiu mult mai generos sus/jos pentru un look elegant */
   }
 
   .footer__cta {
-    margin-bottom: 8rem; /* Împingem linia mai jos ca emailul să respire */
+    margin-bottom: 5rem;
   }
 
   .footer__text {
@@ -142,5 +163,9 @@
 
   .footer__logo-text {
     font-size: 2rem; /* Facem logo-ul puțin mai impunător pe monitoare mari */
+  }
+
+  .footer__socials i {
+  font-size: 1.8rem; 
   }
 }

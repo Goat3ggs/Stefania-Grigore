@@ -5,6 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Frontend Developer Portfolio by Stefania Grigore. Interactive projects created with HTML, CSS, JavaScript and React.">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./src/style.css">
     <title>stefaniagrigore-portfolio</title>
   </head>
@@ -22,7 +24,7 @@
       </button>
       <nav class="nav nav--hidden">
         <ul class="nav__list">
-          <li class="list__item" id="scrollTopItem"><a href="#" id="scrollTopLink" class="nav__link">↑</a></li>
+          <li class="list__item" id="scrollTopItem"><a href="#" id="scrollTopLink" class="nav__link"><img src="/public/arrow-up.png" style="height: 20px;" alt="go up arrow"></a></li>
           <li class="list__item"><a href="#about" class="nav__link">About</a></li>
           <li class="list__item"><a href="#projects" class="nav__link">Projects</a></li>
           <li class="list__item"><a href="#footer" class="nav__link">Contact</a></li>
@@ -96,18 +98,21 @@
 
      <!-- Footer / Contact Section -->
     <footer id="footer" class="footer">
+      
+      <!-- Containerul nr. 1 (Doar pentru textul Let's Talk) -->
       <div class="footer__container">
-        
         <div class="footer__cta">
           <h2 class="footer__title title--big">Let's <span class="text--orange">Talk</span></h2>
           <p class="footer__text">Looking for a developer to join your team or build your next idea?</p>
-          
-          
-          <a href="mailto:stefaniagrigore91@gmail.com" class="footer__email-link">hello@stefaniagrigore.com</a>
+          <a href="mailto:stefaniagrigore91@gmail.com" class="footer__email-link">stefaniagrigore91@gmail.com</a>
         </div>
+      </div>
 
-        <hr class="footer__divider">
+      <!-- Linia despărțitoare este acum LIBERĂ pe tot ecranul -->
+      <hr class="footer__divider">
 
+      <!-- Containerul nr. 2 (Doar pentru zona de jos) -->
+      <div class="footer__container">
         <div class="footer__bottom">
           <div class="footer__left">
             <a href="/" class="footer__logo-text">GS</a>
@@ -119,15 +124,15 @@
 
           <div class="footer__right">
             <ul class="footer__list footer__socials">
-              <li><a href="https://www.linkedin.com/in/grigore-any-mary-stefania/" target="_blank" class="footer__link">LinkedIn</a></li>
-              <li><a href="https://github.com/Goat3ggs?tab=overview&from=2026-03-01&to=2026-03-31" target="_blank" class="footer__link">GitHub</a></li>
-              <li><a href="https://www.instagram.com/goateggs_/?hl=en" class="footer__link">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/in/grigore-any-mary-stefania/" target="_blank" class="footer__link"><i class="devicon-linkedin-plain"></i></a></li>
+              <li><a href="https://github.com/Goat3ggs?tab=overview&from=2026-03-01&to=2026-03-31" target="_blank" class="footer__link"><i class="devicon-github-original"></i></a></li>
+              <li><a href="https://www.instagram.com/goateggs_/?hl=en" class="footer__link"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
             <p class="footer__copyright">© 2026 Grigore Stefania. All rights reserved.</p>
           </div>
         </div>
-    
       </div>
+
     </footer>
 
     <script type="module" src="/src/main.js"></script>
