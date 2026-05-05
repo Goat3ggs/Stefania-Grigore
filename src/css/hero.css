@@ -241,8 +241,7 @@
     transform: translate(-50%);
     height: 90%;
     width: auto;
-    filter: brightness(1) contrast(1.1);
-    /* filter: grayscale(1); */
+    filter: brightness(0) blur(20px) drop-shadow(0px 0px 20px var(--secondary-clr-alpha));
   }
 
   .hero__info {
