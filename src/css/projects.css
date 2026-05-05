@@ -15,7 +15,7 @@ section.projects {
 
 .project__inner {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -39,6 +39,9 @@ section.projects {
 }
 
 @media (min-width: 1500px) {
+  .project__inner {
+    max-width: 1500px;
+  }
   .project__title-section {
     padding-right: 20px;
   }
