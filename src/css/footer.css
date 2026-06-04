@@ -6,7 +6,6 @@
   z-index: 1;
 }
 
-/* Efectul de lumina portocalie subtila din fundal */
 .footer::before {
   content: "";
   position: absolute;
@@ -34,7 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Secretul pentru a nu se suprapune NICIODATA */
+  gap: 1.5rem;
 }
 
 .text--orange {
@@ -42,7 +41,7 @@
 }
 
 .footer__title {
-  font-size: clamp(2.5rem, 6vw, 4rem); /* Dimensiune echilibrata */
+  font-size: clamp(2.5rem, 6vw, 4rem); 
   line-height: 1.2;
   margin: 0;
   letter-spacing: -0.02em;
@@ -56,7 +55,6 @@
   line-height: 1.6;
 }
 
-/* Adresa de email cu o dimensiune eleganta */
 .footer__email-link {
   display: inline-block;
   font-size: clamp(1.2rem, 3.5vw, 2.2rem); 
@@ -74,7 +72,7 @@
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px; /* Subliniere subtire, fina */
+  height: 2px;
   bottom: 0;
   left: 0;
   background-color: var(--secondary-clr);
@@ -93,7 +91,6 @@
   transform-origin: left;
 }
 
-/* --- LINIA SI ZONA DE JOS --- */
 .footer__divider {
   border: none;
   height: 1px;

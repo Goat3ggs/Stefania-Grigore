@@ -7,7 +7,6 @@
   overflow: hidden;
 }
 
-/* --- ADAUGAT: Textura fundal --- */
 .about__texture {
   position: absolute;
   top: 0;
@@ -27,7 +26,7 @@
 
 .about__content {
   position: relative;
-  z-index: 2; /* Ridicam continutul peste textura */
+  z-index: 2;
   width: 100%;
   margin-bottom: 4rem;
 }
@@ -83,7 +82,7 @@
 .about__skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem; /* Spatiere putin marita pentru aerisire */
+  gap: 2rem;
   justify-content: center;
   margin-top: 2.5rem;
   padding: 0;
@@ -98,7 +97,7 @@
   justify-content: center;
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease; /* Ridicare la hover pe iconita */
+  transition: transform 0.3s ease;
 }
 
 .about__skill:hover {
@@ -107,8 +106,8 @@
 
 .skill__tooltip {
   position: absolute;
-  top: -45px; /* Mutat DEASUPRA, pentru a nu fi acoperit de mouse */
-  background-color: var(--secondary-clr); /* Portocaliu, pentru a iesi in evidenta */
+  top: -45px; 
+  background-color: var(--secondary-clr);
   color: var(--primary-clr-1);
   padding: 6px 12px;
   border-radius: 6px;
@@ -118,12 +117,11 @@
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efect "bouncy" */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
   z-index: 200;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Triunghiul indicator din josul tooltip-ului */
 .skill__tooltip::after {
   content: '';
   position: absolute;
@@ -212,7 +210,7 @@
   }
 
   .about__skill {
-    filter: opacity(0.5); /* Iconitele stau "adormite" pe desktop pana dai hover */
+    filter: opacity(0.5);
   }
 
   .about__skill:hover {

@@ -6,7 +6,6 @@ section.projects {
 
 .projects__grid {
   margin-bottom: 4rem;
-  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
   margin-top: 4rem;
 }
 
@@ -14,7 +13,6 @@ section.projects {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  /* Bara laterala ascunsa initial, care va aparea cand e activ */
   border-left: 0px solid var(--secondary-clr);
 }
 
@@ -57,9 +55,9 @@ section.projects {
 
 .project__title {
   display: flex;
-  flex-direction: column; /* Le așază pe verticală pe mobil */
-  align-items: flex-start; /* Le aliniază frumos la stânga */
-  gap: 8px; /* Un pic de spațiu de respirație între nume și tehnologii */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   padding: 25px 0;
   cursor: pointer;
 }
@@ -99,10 +97,10 @@ section.projects {
 .project__name,
 .project__tech {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: rgba(255, 255, 255, 0.7); /* Text usor stins cand e inchis */
+  color: rgba(255, 255, 255, 0.7); 
 }
 
-/* --- STATE: ACTIVE & HOVER (Aici e magia premium) --- */
+
 .project__item:hover {
   background-color: rgba(255, 255, 255, 0.02);
 }
@@ -114,7 +112,7 @@ section.projects {
 
 .project__item.project__item--active {
   background-color: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid var(--secondary-clr); /* Evidentiere subtila, eleganta */
+  border-left: 4px solid var(--secondary-clr); 
 }
 
 .project__item.project__item--active .project__name {
@@ -133,7 +131,7 @@ section.projects {
 
 .project__tech {
   font-size: 0.8rem;
-  font-family: monospace; /* Da un look mai tehnic */
+  font-family: monospace; 
 }
 
 .project__content {
@@ -156,10 +154,10 @@ section.projects {
 .project__content.is-open .project__content--inner {
   padding-bottom: 3rem; 
   opacity: 1;
-  transition: opacity 0.5s ease 0.2s; /* Textul apare lin dupa ce se deschide */
+  transition: opacity 0.5s ease 0.2s;
 }
 
-/* --- IMAGINI PREMIUM --- */
+/* --- IMAGES --- */
 .project__images--grid {
   display: grid;
   gap: 1.5rem;
@@ -171,7 +169,6 @@ section.projects {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  /* Sters dashed black. Adaugat glass effect si umbra */
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -187,7 +184,7 @@ section.projects {
   grid-row: span 2; 
 }
 
-/* --- BUTOANE LINKURI --- */
+/* --- LINKS BUTTON --- */
 .p-links__container {
   display: flex;
   gap: 15px;
@@ -198,7 +195,7 @@ section.projects {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 8px 25px;
-  border-radius: 30px; /* Butoane rotunde, moderne */
+  border-radius: 30px;
   color: var(--accent-clr-title);
   font-weight: var(--fw-bold);
   font-size: 0.9rem;
@@ -211,7 +208,7 @@ section.projects {
 .project__link:hover {
   background-color: var(--secondary-clr);
   border-color: var(--secondary-clr);
-  color: #000; /* Contrast perfect cand dai hover pe butonul portocaliu */
+  color: #000;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
 }
@@ -229,11 +226,11 @@ section.projects {
   }
 
   .project__title {
-    flex-direction: row; /* Pe ecrane mari le aduce înapoi pe același rând */
-    justify-content: space-between; /* Împinge numele la stânga și tehnologiile la dreapta */
+    flex-direction: row; 
+    justify-content: space-between; 
     align-items: center;
     padding: 35px 0;
-    gap: 0; /* Resetăm spațiul folosit la mobil */
+    gap: 0; 
   }
 
   .project__title, .project__name, .project__tech{

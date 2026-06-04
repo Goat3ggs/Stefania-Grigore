@@ -170,7 +170,7 @@
 .marquee-track {
   display: flex;
   white-space: nowrap;
-  animation: scrollMarquee 15s linear infinite; /* Am marit usor timpul ca sa fie mai elegant */
+  animation: scrollMarquee 15s linear infinite;
 }
 
 .dot {
@@ -198,7 +198,6 @@
     height: 100dvh;
   }
 
-  /* Orbul portocaliu din fundal care va lumina textura */
   .hero::before {
     content: "";
     position: absolute;
@@ -235,7 +234,7 @@
     font-size: 3rem;
   }
 
-  /* Ascundem marquee-ul pe desktop pentru un look curat */
+
   .mobile-marquee {
     display: none;
   }
