@@ -8,6 +8,24 @@
   background: radial-gradient(circle at 30% 50%, var(--primary-clr-2) 0%, transparent 70%);
 }
 
+
+.hero__texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.20; 
+  mix-blend-mode: overlay; 
+  pointer-events: none;
+  filter: grayscale(100%) contrast(1.2); 
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -35,16 +53,6 @@
   gap: 2rem;
   margin-top: auto;
   margin-bottom: auto;
-}
-
-.hero__avatar {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  z-index: 1;
-  object-fit: contain;
-  pointer-events: none;
-  transition: all 0.4s ease;
 }
 
 .info__badge {
@@ -88,7 +96,6 @@
 }
 
 .info__badge--big {
-
   background-color: var(--secondary-clr);
   margin-top: 20px;
   padding: 5px;
@@ -98,13 +105,13 @@
   align-items: center;
   gap: 20px;
   width: fit-content;
-  transition: transform 0.3 ease;
+  transition: transform 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .info__badge--big:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px var(--secondary-clr);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px var(--secondary-clr);
   }
 
   .info__badge--big:hover .info__arrow {
@@ -134,23 +141,20 @@
 }
 
 .info__btn {
-    color: var(--accent-clr-title);
-    font-weight: var(--fw-bold);
+  color: var(--accent-clr-title);
+  font-weight: var(--fw-bold);
 }
 
+/* Stilizarea textului mișcător pentru mobil */
 .hero__title--giant {
-   font-size: clamp(2rem, 18vw, 15rem);
-    white-space: nowrap;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: var(--fw-black);
-    color: var(--accent-clr-title);
-    color: transparent;
-    -webkit-text-stroke: 1px var(--accent-clr-title);
-}
-
-.desktop-title {
-  display: none;
+  font-size: clamp(2rem, 18vw, 15rem);
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: var(--fw-black);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent-clr-title);
+  opacity: 0.15;
 }
 
 .mobile-marquee {
@@ -166,7 +170,7 @@
 .marquee-track {
   display: flex;
   white-space: nowrap;
-  animation: scrollMarquee 10s linear infinite;
+  animation: scrollMarquee 15s linear infinite; /* Am marit usor timpul ca sa fie mai elegant */
 }
 
 .dot {
@@ -174,16 +178,10 @@
   -webkit-text-stroke: 0; 
 }
 
-
 @keyframes scrollMarquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
-  
 
 @media (orientation: landscape) and (max-width: 767px) {
   .hero__info {
@@ -191,19 +189,17 @@
   }
 
   .hero__title--giant {
-    /* Folosim 'vh' (înălțime) în loc de 'vw' (lățime). Textul va fi mai mic și elegant. */
     font-size: clamp(2rem, 15vh, 5rem); 
   }
 }
 
-
 @media (min-width: 768px) {
-
   .hero {
     height: 100dvh;
   }
 
-  .hero::before{
+  /* Orbul portocaliu din fundal care va lumina textura */
+  .hero::before {
     content: "";
     position: absolute;
     top: 60%;
@@ -211,8 +207,7 @@
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 1000px;
-    background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20, 20, 0) 70%
-    );
+    background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20, 20, 0) 70%);
     opacity: 0.3;
     z-index: 1;
     filter: blur(80px);
@@ -222,17 +217,6 @@
     padding-top: 100px;
     padding-bottom: 0;
     height: 100%;
-  }
-
-  .hero__avatar {
-    display: block;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%);
-    height: 90%;
-    width: auto;
-    filter: brightness(0) blur(5px) drop-shadow(0px 0px 20px var(--secondary-clr));
-
   }
 
   .hero__info {
@@ -247,33 +231,12 @@
     margin: 0;
   }
 
-  .hero__title--giant {
-  font-size: clamp(3rem, 11vw, 15rem);
-  line-height: 0.7;
-  margin: 0;
-  white-space: nowrap;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: var(--fw-black);
-  letter-spacing: -0.08em;
-  color: var(--accent-clr-title);
-  }
-
   .info__title {
     font-size: 3rem;
   }
 
-  .desktop-title {
-    display: flex;
-  }
-
+  /* Ascundem marquee-ul pe desktop pentru un look curat */
   .mobile-marquee {
     display: none;
   }
-
-  .hero__title--giant.desktop-title {
-    align-self: center;
-  }
-
 }
-

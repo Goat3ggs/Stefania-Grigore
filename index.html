@@ -35,7 +35,10 @@
 
     <main class="main">
       <section class="main__item hero" aria-labelledby="hero-title">
-        <img src="./src/assets/Stefania-avatar-transparent.png" alt="Stefania Grigore Profile Picture" class="hero__avatar">
+        
+        <!-- NOU: Containerul pentru textura abstracta -->
+        <div class="hero__texture"></div>
+
         <div class="hero__content">
           <div class="hero__info">
             <div class="info__left">
@@ -52,17 +55,16 @@
                 <span class="info__btn">See my work</span>
               </a>
             </div>
-            
           </div>
 
-          <h1 class="hero__title--giant desktop-title">Stefania</h1>
+          <!-- Marquee-ul pentru mobil (fara numele tau, doar tehnic) -->
           <div class="mobile-marquee">
             <div class="marquee-track">
               <span class="hero__title--giant marquee-text">
-                STEFANIA <span class="dot">•</span> REACT <span class="dot">•</span> TYPESCRIPT <span class="dot">•</span> VANILLA JS <span class="dot">•</span>
+                FRONTEND <span class="dot">•</span> REACT <span class="dot">•</span> TYPESCRIPT <span class="dot">•</span> VANILLA JS <span class="dot">•</span>
               </span>
               <span class="hero__title--giant marquee-text">
-                STEFANIA <span class="dot">•</span> REACT <span class="dot">•</span> TYPESCRIPT <span class="dot">•</span> VANILLA JS <span class="dot">•</span>
+                FRONTEND <span class="dot">•</span> REACT <span class="dot">•</span> TYPESCRIPT <span class="dot">•</span> VANILLA JS <span class="dot">•</span>
               </span>
             </div>
           </div>
@@ -71,6 +73,9 @@
 
       <!-- About Me Section + Skills -->
       <section id="about" class="main__item about">
+        
+        <div class="about__texture"></div>
+
         <div class="about__content">
           <h2 class="about__title title--big">About <span class="about__title--orange">Me</span></h2>
           <div class="about__info">
@@ -99,19 +104,18 @@
      <!-- Footer / Contact Section -->
     <footer id="footer" class="footer">
       
-      <!-- Containerul nr. 1 (Doar pentru textul Let's Talk) -->
       <div class="footer__container">
         <div class="footer__cta">
-          <h2 class="footer__title title--big">Let's <span class="text--orange">Talk</span></h2>
+          <h2 class="footer__title">Let's <span class="text--orange">Talk</span></h2>
           <p class="footer__text">Looking for a developer to join your team or build your next idea?</p>
-          <a href="mailto:stefaniagrigore91@gmail.com" class="footer__email-link">stefaniagrigore91@gmail.com</a>
+          <a href="mailto:stefaniagrigore91@gmail.com" class="footer__email-link">
+            stefaniagrigore91@gmail.com
+          </a>
         </div>
       </div>
 
-      <!-- Linia despărțitoare este acum LIBERĂ pe tot ecranul -->
       <hr class="footer__divider">
 
-      <!-- Containerul nr. 2 (Doar pentru zona de jos) -->
       <div class="footer__container">
         <div class="footer__bottom">
           <div class="footer__left">
@@ -126,7 +130,7 @@
             <ul class="footer__list footer__socials">
               <li><a href="https://www.linkedin.com/in/grigore-any-mary-stefania/" target="_blank" class="footer__link"><i class="devicon-linkedin-plain"></i></a></li>
               <li><a href="https://github.com/Goat3ggs?tab=overview&from=2026-03-01&to=2026-03-31" target="_blank" class="footer__link"><i class="devicon-github-original"></i></a></li>
-              <li><a href="https://www.instagram.com/goateggs_/?hl=en" class="footer__link"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://www.instagram.com/goateggs_/?hl=en" target="_blank" class="footer__link"><i class="fa-brands fa-instagram"></i></a></li>
             </ul>
             <p class="footer__copyright">© 2026 Grigore Stefania. All rights reserved.</p>
           </div>

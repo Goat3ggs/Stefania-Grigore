@@ -1,16 +1,21 @@
 section.projects {
   min-height: auto;
   padding-bottom: 4rem;
+  position: relative;
 }
 
 .projects__grid {
   margin-bottom: 4rem;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  margin-top: 4rem;
 }
 
 .project__item {
-  border-bottom: 1px solid #555;
-  border-top: 1px solid #555;
-  transition: background-color 0.3s ease, color 0.3 ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  /* Bara laterala ascunsa initial, care va aparea cand e activ */
+  border-left: 0px solid var(--secondary-clr);
 }
 
 .project__inner {
@@ -27,7 +32,6 @@ section.projects {
   max-width: 1500px;
   padding-left: 20px;
   padding-right: 20px;
-  /* font-size: 4rem; */
   text-align: left;
 }
 
@@ -53,43 +57,96 @@ section.projects {
 
 .project__title {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
+  flex-direction: column; /* Le așază pe verticală pe mobil */
+  align-items: flex-start; /* Le aliniază frumos la stânga */
+  gap: 8px; /* Un pic de spațiu de respirație între nume și tehnologii */
+  padding: 25px 0;
   cursor: pointer;
+}
+
+/* --- THUMBNAILS --- */
+.project__title-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project__thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.5;
+  transition: all 0.4s ease;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .project__thumbnail {
+    display: block; 
+  }
+  
+  .project__item:hover .project__thumbnail,
+  .project__item.project__item--active .project__thumbnail {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .project__name,
 .project__tech {
-  transition: font-size 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.7); /* Text usor stins cand e inchis */
+}
+
+/* --- STATE: ACTIVE & HOVER (Aici e magia premium) --- */
+.project__item:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.project__item:hover .project__name,
+.project__item:hover .project__tech:not(.project__tech--open) {
+  color: var(--accent-clr-title);
 }
 
 .project__item.project__item--active {
-  background-color: var(--accent-clr-title);
-  color: #111;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--secondary-clr); /* Evidentiere subtila, eleganta */
+}
+
+.project__item.project__item--active .project__name {
+  color: var(--accent-clr-title);
 }
 
 .project__name {
   font-size: 1.2rem;
 }
+
 .project__name--open {
-    font-weight: var(--fw-bold);
-    font-size: 1.8rem;
-  }
+  font-weight: var(--fw-bold);
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+}
 
 .project__tech {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-family: monospace; /* Da un look mai tehnic */
 }
 
 .project__content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project__content--inner {
   overflow: hidden;
   padding-bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .project__content.is-open {
@@ -97,13 +154,16 @@ section.projects {
 }
 
 .project__content.is-open .project__content--inner {
-  padding-bottom: 2.5rem; 
+  padding-bottom: 3rem; 
+  opacity: 1;
+  transition: opacity 0.5s ease 0.2s; /* Textul apare lin dupa ce se deschide */
 }
 
+/* --- IMAGINI PREMIUM --- */
 .project__images--grid {
   display: grid;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .project__img {
@@ -111,39 +171,69 @@ section.projects {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  border: 2px solid black;
-  border-style: dashed;
+  /* Sters dashed black. Adaugat glass effect si umbra */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project__img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .project__img--main {
   grid-row: span 2; 
 }
 
+/* --- BUTOANE LINKURI --- */
 .p-links__container {
-  /* border: 1px solid red; */
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .project__link {
-  background-color: var(--accent-clr-alpha);
-  padding: 5px 20px;
-  border-radius: 5px;
-  color: var(--primary-clr-1);
-  margin-bottom: 20px;
-  font-weight: var(--fw-medium);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 25px;
+  border-radius: 30px; /* Butoane rotunde, moderne */
+  color: var(--accent-clr-title);
+  font-weight: var(--fw-bold);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.project__link:hover {
+  background-color: var(--secondary-clr);
+  border-color: var(--secondary-clr);
+  color: #000; /* Contrast perfect cand dai hover pe butonul portocaliu */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+}
+
+.project__desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 800px;
+}
 
 @media (min-width: 768px) {
   .projects {
     scroll-margin-top: clamp(60px, 15vh, 200px);
   }
 
-  .project__item:hover,
-  .project__item.project__item--active {
-    background-color: #f5f5f5;
-    color: #111;
+  .project__title {
+    flex-direction: row; /* Pe ecrane mari le aduce înapoi pe același rând */
+    justify-content: space-between; /* Împinge numele la stânga și tehnologiile la dreapta */
+    align-items: center;
+    padding: 35px 0;
+    gap: 0; /* Resetăm spațiul folosit la mobil */
   }
 
   .project__title, .project__name, .project__tech{
@@ -151,46 +241,33 @@ section.projects {
   }
 
   .project__name--open {
-    font-size: 3rem;
-    font-weight: var(--fw-bold);
+    font-size: 3.5rem;
   }
 
   .project__tech--open {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: var(--secondary-clr); 
   }
 
   .project__content.is-open .project__content--inner {
     padding-bottom: 6rem; 
   }
 
-  .project__tech--open {
-    background-color: var(--accent-clr-alpha);
-    padding: 5px 20px;
-    border-radius: 5px;
-    color: var(--primary-clr-1);
-    font-weight: var(--fw-bold);
-    margin-bottom: 20px;
-  }
-
   .project__link {
-    padding: 5px 40px;
-    color: var(--primary-clr-1);
-  }
-
-  .project__link:hover {
-    background-color: var(--secondary-clr-alpha);
+    padding: 10px 40px;
+    font-size: 1rem;
   }
 
   .project__desc {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .project__images--grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     grid-template-rows: 400px 400px;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 2rem;
+    margin-top: 4rem;
     aspect-ratio: 16 / 9;
   }
 
@@ -199,4 +276,3 @@ section.projects {
     grid-template-rows: 1fr 1fr;
   }
 }
-

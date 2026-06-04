@@ -1,14 +1,35 @@
 .about {
-  /* Lumina vine din stânga, fixată pe zona pozei
-  background: radial-gradient(circle at 150% 50%, #2A5A7A 0%, transparent 60%);
-  padding: 80px 0; */
-
   display: flex;
   gap: 3rem;
   margin-top: 100px;
   margin-bottom: 100px;
   position: relative;
   overflow: hidden;
+}
+
+/* --- ADAUGAT: Textura fundal --- */
+.about__texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); /* Aceeasi imagine */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.10; 
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+/* -------------------------------- */
+
+.about__content {
+  position: relative;
+  z-index: 2; /* Ridicam continutul peste textura */
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 .about__title, .project__title-section {
@@ -32,70 +53,86 @@
   line-height: 1.6;
   color: var(--accent-clr-title);
   max-width: 100%;
-
 }
 
 .about__photo {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
-  /* margin-top: -70px; */
   border-radius: 50%;
   filter: grayscale(1) contrast(1.2);
   z-index: 100;
-
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 .about::before{
-    content: "";
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 900px;
-    background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20,20, 0) 50%);
-    opacity: 0.2;
-    z-index: 1;
-    filter: blur(80px);
-  }
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 900px;
+  background: radial-gradient(circle, var(--secondary-clr) 0%, rgba(192, 20,20, 0) 50%);
+  opacity: 0.2;
+  z-index: 1;
+  filter: blur(80px);
+}
 
 .about__skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem; /* Spatiere putin marita pentru aerisire */
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding: 0;
   position: relative;
   z-index: 150;
 }
 
+/* --- UPGRADE TOOLTIP & HOVER --- */
 .about__skill {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   cursor: pointer;
+  transition: transform 0.3s ease; /* Ridicare la hover pe iconita */
+}
+
+.about__skill:hover {
+  transform: translateY(-5px);
 }
 
 .skill__tooltip {
   position: absolute;
-  bottom: -35px;
-  background-color: var(--accent-clr-sub, #fff);
+  top: -45px; /* Mutat DEASUPRA, pentru a nu fi acoperit de mouse */
+  background-color: var(--secondary-clr); /* Portocaliu, pentru a iesi in evidenta */
   color: var(--primary-clr-1);
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: var(--fw-bold);
   white-space: nowrap;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(10px);
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efect "bouncy" */
   z-index: 200;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Triunghiul indicator din josul tooltip-ului */
+.skill__tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--secondary-clr) transparent transparent transparent;
 }
 
 .about__skill:hover .skill__tooltip,
@@ -103,6 +140,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* -------------------------------- */
 
 .skill__icon {
   width: 40px;
@@ -118,8 +156,6 @@
   }
 
   .about__content {
-    display: flex;
-    gap: 3rem;
     align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
@@ -131,10 +167,10 @@
   }
 
   .about__title {
-    font-size: 3rem;
-    max-width: 100px;
-    line-height: .9;
-    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    text-align: left;
+    width: auto;
   }
 
   .project__title-section {
@@ -143,10 +179,9 @@
   
   .about__title--orange {
     background-color: var(--secondary-clr);
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0.2rem 0;
+    display: inline-block; 
+    text-align: left;
+    padding: 0.2rem 0.5rem;
   }
 
   .about__info-group {
@@ -177,7 +212,7 @@
   }
 
   .about__skill {
-    filter: opacity(0.5);
+    filter: opacity(0.5); /* Iconitele stau "adormite" pe desktop pana dai hover */
   }
 
   .about__skill:hover {

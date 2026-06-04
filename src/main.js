@@ -94,7 +94,11 @@ const renderProjects = () => {
         <div class="project__item">
             <div class="project__inner">
                 <div class="project__title">
-                    <div class="project__name">${project.name}</div>
+                    <!-- ADAUGAT: Un container flex pentru a alătura miniatura și numele -->
+                    <div class="project__title-left">
+                        <img src="${project.image1}" alt="${project.name} thumbnail" class="project__thumbnail">
+                        <div class="project__name">${project.name}</div>
+                    </div>
                     <div class="project__tech">${project.tech}</div>  
                 </div>
                 <div class="project__content">
@@ -104,7 +108,7 @@ const renderProjects = () => {
                             <a href="${project.liveUrl}" target="_blank" class="project__link">Live</a>
                         </div>
                         <p class="project__desc">${project.desc}</p>
-                        <div class="project__images project__images--grid ${project.class}">
+                        <div class="project__images project__images--grid ${project.class ? project.class : ''}">
                             <img src="${project.image1}" alt="Image for the ${project.name} project" class="project__img project__img--main ">
                             <img src="${project.image2}" alt="Image for the ${project.name} project" class="project__img">
                             <img src="${project.image3}" alt="Image for the ${project.name} project" class="project__img">
